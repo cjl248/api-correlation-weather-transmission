@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+coronavirus = GetCoronavirusData.new
+coronavirus.date_data.map do |date|
+  Day.find_or_create_by(date)
+end
