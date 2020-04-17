@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: MyString
+  new_cases: 1
+  new_deaths: 1
+  high_temp: 1
+  low_temp: 1
+  condition: MyString
+
+two:
+  date: MyString
+  new_cases: 1
+  new_deaths: 1
+  high_temp: 1
+  low_temp: 1
+  condition: MyString
