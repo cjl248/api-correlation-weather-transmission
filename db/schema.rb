@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_17_201100) do
+ActiveRecord::Schema.define(version: 2020_04_29_022520) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "days", force: :cascade do |t|
     t.string "date"
-    t.integer "new_cases"
-    t.integer "new_deaths"
+    t.integer "total_cases"
+    t.integer "total_deaths"
     t.integer "high_temp"
     t.integer "low_temp"
     t.string "condition"
