@@ -1,24 +1,11 @@
-# README
+<h1 align="center">Riskful - Backend (Rails)</h1>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<div align="center">
+A web app that investigates the correlation between different factors and the risk of infection with SARS-CoV-2
+</div>
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+<div align="center">
+  <sub>Built with ❤️ by 
+  <a href="https://github.com/cjl248">Chris Liendo</a>
+  </sub>
+</div>
