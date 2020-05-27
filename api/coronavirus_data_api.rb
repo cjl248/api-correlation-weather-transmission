@@ -16,7 +16,7 @@ class GetCoronavirusData
 
   def parse_data
     data = JSON.parse(self.data)
-    parsed_data = data['locations']['timelines']
+    parsed_data = data['locations'][0]['timelines']
     parsed_data
   end
 
