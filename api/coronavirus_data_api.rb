@@ -5,17 +5,18 @@ require 'json'
 
 URL = 'https://coronavirus-tracker-api.herokuapp.com/v2/locations/225'
 
+NYC_ENDPOINT = 'https://coronavirus-tracker-api.herokuapp.com/v2/locations?source=nyt&county=New+York+City&timelines=true'
+
 # Class for parsing coronavirus confirmed, death data
 class GetCoronavirusData
-
   def data
-    response = RestClient.get(URL)
+    response = RestClient.get(NYC_ENDPOINT)
     response.body
   end
 
   def parse_data
     data = JSON.parse(self.data)
-    parsed_data = data['location']['timelines']
+    parsed_data = data['locations'][0]['timelines']
     parsed_data
   end
 
@@ -24,8 +25,8 @@ class GetCoronavirusData
     dates.map do |date|
       date_array << {
         date: date,
-        new_cases: confirmed[date],
-        new_deaths: deaths[date]
+        total_cases: confirmed[date],
+        total_deaths: deaths[date]
       }
     end
     date_array
@@ -44,5 +45,4 @@ class GetCoronavirusData
   def deaths
     parse_data['deaths']['timeline']
   end
-
 end
