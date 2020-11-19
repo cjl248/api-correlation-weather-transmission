@@ -3,46 +3,37 @@
 require 'rest-client'
 require 'json'
 
-URL = 'https://coronavirus-tracker-api.herokuapp.com/v2/locations/225'
+require  'pry'
 
-NYC_ENDPOINT = 'https://coronavirus-tracker-api.herokuapp.com/v2/locations?source=nyt&county=New+York+City&timelines=true'
+
+NYS_ENDPOINT = "https://api.covidtracking.com/v1/states/ny/daily.json"
 
 # Class for parsing coronavirus confirmed, death data
 class GetCoronavirusData
   def data
-    response = RestClient.get(NYC_ENDPOINT)
+    response = RestClient.get(NYS_ENDPOINT)
     response.body
   end
 
   def parse_data
-    data = JSON.parse(self.data)
-    parsed_data = data['locations'][0]['timelines']
-    parsed_data
+    JSON.parse(self.data)
   end
 
   def date_data
     date_array = []
-    dates.map do |date|
+    parse_data.map do |date|
       date_array << {
-        date: date,
-        total_cases: confirmed[date],
-        total_deaths: deaths[date]
+        date: date['date'].to_s,
+        new_tests: date['totalTestResultsIncrease'],
+        new_positives: date['positiveIncrease'],
+        total_positives: date['positive'],
+        new_hospitalizations: date['hospitalizedIncrease'],
+        current_hospitalizations: data['hospitalizedCurrently'],
+        new_deaths: date['deathIncrease'],
+        total_deaths: date['death']
       }
     end
     date_array
   end
 
-  private
-
-  def dates
-    parse_data['confirmed']['timeline'].keys
-  end
-
-  def confirmed
-    parse_data['confirmed']['timeline']
-  end
-
-  def deaths
-    parse_data['deaths']['timeline']
-  end
 end

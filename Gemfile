@@ -24,7 +24,7 @@ gem 'rest-client'
 gem 'json'
 
 # Debugging
-gem 'pry'
+gem 'pry', '~> 0.10.3'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
