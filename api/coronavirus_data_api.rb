@@ -28,7 +28,7 @@ class GetCoronavirusData
         new_positives: date['positiveIncrease'],
         total_positives: date['positive'],
         new_hospitalizations: date['hospitalizedIncrease'],
-        current_hospitalizations: data['hospitalizedCurrently'],
+        current_hospitalizations: date['hospitalizedCurrently'],
         new_deaths: date['deathIncrease'],
         total_deaths: date['death']
       }
